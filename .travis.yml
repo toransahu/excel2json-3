@@ -6,5 +6,4 @@ install:
   - pip install -r requirements.pip
 # command to run tests
 script:
-  - cd $TRAVIS_BUILD_DIR/src
-  - pytest # or py.test for Python versions 3.5 and below
+  - pytest src/test.py # or py.test for Python versions 3.5 and below
