@@ -1,12 +1,9 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
 attrs = "==17.4.0"
 certifi = "==2018.1.18"
 chardet = "==3.0.4"
@@ -21,7 +18,8 @@ pytest = "==3.4.0"
 requests = "==2.18.4"
 "urllib3" = "==1.22"
 xlrd = "==1.1.0"
-
+setuptools = "*"
+wheel = "*"
+twine = "*"
 
 [dev-packages]
-

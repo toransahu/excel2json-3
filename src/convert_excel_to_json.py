@@ -1,14 +1,25 @@
+#! /usr/bin/env python
 # -*- coding: utf-8 -*-
+# vim:fenc=utf-8
+# created_on: Sat Feb 30 13:49:20 2018
+
 """
-Created on Sat Feb 30 13:49:20 2018
-@aim: Download & convert a MS Excel sheet to a JSON file [using xlrd python module)
-@author: toran.sahu
+convert_excel_to_json.py
+
+@aim: Provide a link to or a file of type .xlsx/.xls & convert a MS Excel sheet to a JSON file [using xlrd python module)
 """
+
+__version__ = '0.0.1'
+__author__ = 'Toran Sahu  <toran.sahu@yahoo.com>'
+__license__ = 'Distributed under terms of the AGPL license.'
+
+
 import os
 import sys
+import json
+import argparse
 import requests
 from xlrd import open_workbook  # python module 'xlrd supports .xls & .xlsx both
-import json
 from xlrd.biffh import XLRDError
 
 
@@ -156,4 +167,25 @@ def main():
         sys.exit(1)
 
 
-main()
+def convert_from_url(url, in_memory=False):
+    """
+    GET file from URL & In-Memory convert to JSON.
+    """
+    pass
+
+
+def convert_from_file(filepath):
+    """
+    Get file & convert to JSON.
+    """
+    pass
+
+
+def run_in_cli():
+    """
+    Get file & convert to JSON.
+    """
+    pass
+
+
+# main()
