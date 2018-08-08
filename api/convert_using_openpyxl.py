@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """
+~~~~~EXPERIMENTAL~~~~~~
 Created on Sat Feb 30 13:49:20 2018
 Download & convert a MS Excel sheet to a JSON file [using openpyxl python module, only supports .xlsx files)
 """
