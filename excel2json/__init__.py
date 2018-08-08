@@ -7,7 +7,7 @@
 __init__.py
 """
 
-from api import convert_excel_to_json
+from api.convert import convert_from_file, convert_from_url, jsonify
 
 
 __author__ = 'Toran Sahu  <toran.sahu@yahoo.com>'
