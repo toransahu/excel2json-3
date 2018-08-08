@@ -1,7 +1,7 @@
-# Pre-requisites
-1. Python 3
+# DEVELOPEMENT
 
-# Installation
+## Pre-requisites
+1. Python 3
 
 ## Create Virtual Enviroment
 
@@ -27,14 +27,15 @@
     pipenv sync
     ```
 
-
 ### Using [`virtualenv`](https://pypi.org/project/virtualenv/)
 
 1. Install virtualenv
+
     ```
     pip install virtualenv
     ```
 2. Create virtualenv
+
     ```
     mkdir myvenv
     cd myvenv
