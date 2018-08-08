@@ -22,7 +22,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 # Shortcut to publish the package.
 # setup.py publish
 ##
-if sys.argv[-1] == 'publish':
+if sys.argv[-1] == '-t publish':
     os.system('python setup.py sdist bdist_wheel')
     os.system('twine upload dist/*')
     sys.exit()
@@ -35,14 +35,14 @@ elif sys.argv[-1] == '--test':
 ##
 # sub-packages to include 
 ##
-packages = ['src.excel2json']
+packages = ['excel2json-3']
 
 
 ##
 # get basic info about the package
 ##
 about = {}
-with open(os.path.join(here, 'src', '__about__.py'), 'r', 'utf-8') as f:
+with open(os.path.join(here, 'excel2json-3', '__about__.py'), 'r', 'utf-8') as f:
     exec(f.read(), about)
 
 ##
@@ -57,10 +57,11 @@ setuptools.setup(
         version=about['__version__'],
         author=about['__author__'],
         author_email=about['__author_email__'],
-        description=['__description__'],
+        description=about['__description__'],
         long_description=long_description,
         long_description_content_type="text/markdown",
         url=about['__github__'],
+        license=about['__license__']
         # packages=setuptools.find_packages(),
         packages=packages,
         classifiers=(
