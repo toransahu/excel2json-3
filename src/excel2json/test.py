@@ -5,7 +5,7 @@ import os
 
 URL = 'https://www.iso20022.org/sites/default/files/ISO10383_MIC/ISO10383_MIC.xls'  # Correct
 URL1 = 'https://www.iso20022.org/sites/default/files/ISO10383_MIC/ISO10383_MI.xls'  # C is missing before .xls
-LOC = '../data/'
+LOC = '../../data/'
 LOC1 = ''
 LOC2 = 'abc'
 FILENAME = 'ISO10383_MIC.xls'
