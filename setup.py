@@ -24,11 +24,12 @@ here = os.path.abspath(os.path.dirname(__file__))
 ##
 if sys.argv[-2:] == ['--test', 'publish']:
     os.system('python setup.py sdist bdist_wheel')
-    os.system('twine upload dist/*')
+    os.system('twine upload --repository-url https://test.pypi.org/legacy/ dist/*')
     sys.exit()
 elif sys.argv[-1] == 'publish':
     os.system('python setup.py sdist bdist_wheel')
-    os.system('twine upload --repository-url https://upload.test.pypi.org/legacy/ dist/*')
+    os.system('twine upload dist/*')
+    # os.system('twine upload --repository-url https://upload.pypi.org/legacy/ dist/*')
     sys.exit()
 
 
