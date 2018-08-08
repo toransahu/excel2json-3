@@ -2,8 +2,10 @@
 
 
 import os
-from convert_excel_to_json import download_file, save_file, read_excel_sheet, jsonify
-
+try:
+    from convert_excel_to_json import download_file, save_file, read_excel_sheet, jsonify
+except:
+    from excel2json.convert_excel_to_json import download_file, save_file, read_excel_sheet, jsonify
 
 URL = 'https://www.iso20022.org/sites/default/files/ISO10383_MIC/ISO10383_MIC.xls'  # Correct
 URL1 = 'https://www.iso20022.org/sites/default/files/ISO10383_MIC/ISO10383_MI.xls'  # C is missing before .xls
