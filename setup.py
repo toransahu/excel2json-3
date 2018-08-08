@@ -7,28 +7,62 @@
 setup.py
 """
 
-
+import os
+import sys
 import setuptools
+from codecs import open
 
 
-__version__ = '0.0.1'
 __author__ = 'Toran Sahu  <toran.sahu@yahoo.com>'
 __license__ = 'Distributed under terms of the AGPL license.'
 
+here = os.path.abspath(os.path.dirname(__file__))
 
+##
+# Shortcut to publish the package.
+# setup.py publish
+##
+if sys.argv[-1] == 'publish':
+    os.system('python setup.py sdist bdist_wheel')
+    os.system('twine upload dist/*')
+    sys.exit()
+elif sys.argv[-1] == '--test':
+    os.system('python setup.py sdist bdist_wheel')
+    os.system('twine upload --repository-url https://upload.test.pypi.org/legacy/ dist/*')
+    sys.exit()
+
+
+##
+# sub-packages to include 
+##
+packages = ['src.excel2json']
+
+
+##
+# get basic info about the package
+##
+about = {}
+with open(os.path.join(here, 'src', '__about__.py'), 'r', 'utf-8') as f:
+    exec(f.read(), about)
+
+##
+# get long description about the package from README.md
+##
 with open("README.md", "r") as fh:
     long_description = fh.read()
+    
 
 setuptools.setup(
-        name="excel2json-3",
-        version="0.0.2",
-        author="Toran Sahu",
-        author_email="toran.sahu@yahoo.com",
-        description="Convert MS Excel file formats to JSON",
+        name=about['__title__'],
+        version=about['__version__'],
+        author=about['__author__'],
+        author_email=about['__author_email__'],
+        description=['__description__'],
         long_description=long_description,
         long_description_content_type="text/markdown",
-        url="https://github.com/toransahu/excel2json-3",
-        packages=setuptools.find_packages(),
+        url=about['__github__'],
+        # packages=setuptools.find_packages(),
+        packages=packages,
         classifiers=(
             "Programming Language :: Python :: 3",
             "Programming Language :: Python :: 3.6",

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Feb 30 13:49:20 2018
-@aim: Download & convert a MS Excel sheet to a JSON file [using openpyxl python module, only supports .xlsx files)
-@author: toran.sahu
+Download & convert a MS Excel sheet to a JSON file [using openpyxl python module, only supports .xlsx files)
 """
+
 import os
 import requests
 from openpyxl import load_workbook # python module 'openpyxl supports .xlsx only
