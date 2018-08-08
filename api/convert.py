@@ -96,7 +96,7 @@ def read_excel_sheet(abspath, sheet_name):
 
 
 def jsonify(worksheet, loc):
-    """
+    r"""
     Read excel sheet and save whole sheet as a json file.
 
     :param worksheet: worksheet object
@@ -167,7 +167,7 @@ def main():
 
 
 def convert_from_url(url, location=None, in_memory=False):
-    """
+    r"""
     GET file from URL & In-Memory convert to JSON.
 
     :param url: URL of a MS Excel file [2003 (.xls) or 2007(.xlsx)].
@@ -179,7 +179,7 @@ def convert_from_url(url, location=None, in_memory=False):
 
 
 def convert_from_file(filepath, location=None):
-    """
+    r"""
     Get file & convert to JSON.
 
     :param filepath: Relative or absolute path of a MS Excel file [2003 (.xls) or 2007(.xlsx)].

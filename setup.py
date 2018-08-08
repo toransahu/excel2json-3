@@ -51,7 +51,10 @@ with open(os.path.join(here, '__about__.py'), 'r', 'utf-8') as f:
 ##
 with open("README.md", "r") as fh:
     long_description = fh.read()
-    
+
+with open(os.path.join(here, docs, "Solution.md"), "r") as f:
+    detail_description = f.read()
+
 
 setuptools.setup(
         name=about['__title__'],
@@ -59,7 +62,7 @@ setuptools.setup(
         author=about['__author__'],
         author_email=about['__author_email__'],
         description=about['__description__'],
-        long_description=long_description,
+        long_description=long_description + detail_description,
         long_description_content_type="text/markdown",
         url=about['__github__'],
         license=about['__license__'],
