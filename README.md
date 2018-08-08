@@ -1,7 +1,8 @@
 # Excel to JSON Converter
 [![Build Status](https://travis-ci.org/toransahu/excel2json-3.svg?branch=master)](https://travis-ci.org/toransahu/excel2json-3)
 [![PyPI version](https://badge.fury.io/py/excel2json-3.svg)](https://badge.fury.io/py/excel2json-3)
-[![Python Version]()](https://img.shields.io/badge/python-3%2C%203.6-yellow.svg) [![Say Thanks](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/toransahu)
+![Python Version](https://img.shields.io/badge/python-3%2C%203.6-yellow.svg)
+[![Say Thanks](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/toransahu)
 
 A minimal API that downloads MS Excel (XLS + XLSX) file from a given URL and converts a given sheet into JSON file.
 
