@@ -166,16 +166,24 @@ def main():
         sys.exit(1)
 
 
-def convert_from_url(url, in_memory=False):
+def convert_from_url(url, location=None, in_memory=False):
     """
     GET file from URL & In-Memory convert to JSON.
+
+    :param url: URL of a MS Excel file [2003 (.xls) or 2007(.xlsx)].
+    :param location: (optional) String, Relative or absolute dir path location to save the JSON files. Else JSON files will be saved at current working directory.
+    :param in_memory: (optional) Boolean, True or False to convert MS Excel file in-memory and produce JSON. Else MS Excel file will be saved at current working directory.
+    :return: Exit status.
     """
     pass
 
 
-def convert_from_file(filepath):
+def convert_from_file(filepath, location=None):
     """
     Get file & convert to JSON.
+
+    :param filepath: Relative or absolute path of a MS Excel file [2003 (.xls) or 2007(.xlsx)].
+    :param location: (optional) String, Relative or absolute dir path location to save the JSON files. Else JSON files will be saved at current working directory.
     """
     pass
 

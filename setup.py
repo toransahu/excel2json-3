@@ -43,7 +43,7 @@ packages = ['excel2json']
 # get basic info about the package
 ##
 about = {}
-with open(os.path.join(here, 'excel2json', '__about__.py'), 'r', 'utf-8') as f:
+with open(os.path.join(here, '__about__.py'), 'r', 'utf-8') as f:
     exec(f.read(), about)
 
 ##
