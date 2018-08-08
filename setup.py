@@ -22,11 +22,11 @@ here = os.path.abspath(os.path.dirname(__file__))
 # Shortcut to publish the package.
 # setup.py publish
 ##
-if sys.argv[-1] == '-t publish':
+if sys.argv[-2:] == ['--test', 'publish']:
     os.system('python setup.py sdist bdist_wheel')
     os.system('twine upload dist/*')
     sys.exit()
-elif sys.argv[-1] == '--test':
+elif sys.argv[-1] == 'publish':
     os.system('python setup.py sdist bdist_wheel')
     os.system('twine upload --repository-url https://upload.test.pypi.org/legacy/ dist/*')
     sys.exit()
@@ -35,14 +35,14 @@ elif sys.argv[-1] == '--test':
 ##
 # sub-packages to include 
 ##
-packages = ['excel2json-3']
+packages = ['excel2json']
 
 
 ##
 # get basic info about the package
 ##
 about = {}
-with open(os.path.join(here, 'excel2json-3', '__about__.py'), 'r', 'utf-8') as f:
+with open(os.path.join(here, 'excel2json', '__about__.py'), 'r', 'utf-8') as f:
     exec(f.read(), about)
 
 ##
@@ -61,7 +61,7 @@ setuptools.setup(
         long_description=long_description,
         long_description_content_type="text/markdown",
         url=about['__github__'],
-        license=about['__license__']
+        license=about['__license__'],
         # packages=setuptools.find_packages(),
         packages=packages,
         classifiers=(
