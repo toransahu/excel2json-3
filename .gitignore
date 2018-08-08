@@ -102,3 +102,6 @@ ENV/
 
 # pycharm
 .idea/
+
+# pytest cache
+.pytest_cache/
