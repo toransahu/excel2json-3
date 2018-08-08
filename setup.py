@@ -20,16 +20,17 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-        name="excel2json",
-        version="0.0.1",
+        name="excel2json-3",
+        version="0.0.2",
         author="Toran Sahu",
         author_email="toran.sahu@yahoo.com",
         description="Convert MS Excel file formats to JSON",
         long_description=long_description,
         long_description_content_type="text/markdown",
-        url="https://github.com/toransahu/excel_to_json",
+        url="https://github.com/toransahu/excel2json-3",
         packages=setuptools.find_packages(),
         classifiers=(
+            "Programming Language :: Python :: 3",
             "Programming Language :: Python :: 3.6",
             "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
             "Operating System :: OS Independent",
@@ -37,7 +38,7 @@ setuptools.setup(
             'Topic :: Software Development :: Libraries :: Python Modules',
             'Topic :: System :: Archiving :: Packaging',
             "Topic :: Text Processing",
-            "Development Status :: 1 - Planning",
+            "Development Status :: 2 - Pre-Alpha",
             "Intended Audience :: Developers",
             "Intended Audience :: System Administrators",
             "Intended Audience :: End Users/Desktop",

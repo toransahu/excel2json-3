@@ -9,7 +9,7 @@ convert_excel_to_json.py
 @aim: Provide a link to or a file of type .xlsx/.xls & convert a MS Excel sheet to a JSON file [using xlrd python module)
 """
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 __author__ = 'Toran Sahu  <toran.sahu@yahoo.com>'
 __license__ = 'Distributed under terms of the AGPL license.'
 

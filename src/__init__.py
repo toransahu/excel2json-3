@@ -7,8 +7,8 @@
 __init__.py
 """
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 __author__ = 'Toran Sahu  <toran.sahu@yahoo.com>'
 __license__ = 'Distributed under terms of the AGPL license.'
 
-name='excel2json'
+name='excel2json-3'
