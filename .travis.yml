@@ -9,4 +9,4 @@ install:
 # command to run tests
 script:
   # - pytest src/test.py # or py.test for Python versions 3.5 and below
-  - pipenv run pytest src/excel2json/test.py # or py.test for Python versions 3.5 and below
+  - pipenv run pytest excel2json/test.py # or py.test for Python versions 3.5 and below
