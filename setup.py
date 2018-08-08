@@ -52,7 +52,7 @@ with open(os.path.join(here, '__about__.py'), 'r', 'utf-8') as f:
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-with open(os.path.join(here, docs, "Solution.md"), "r") as f:
+with open(os.path.join(here, "docs", "Solution.md"), "r") as f:
     detail_description = f.read()
 
 
