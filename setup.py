@@ -60,43 +60,50 @@ with open(os.path.join(here, "docs", "DEVELOPMENT.md"), "r") as f:
 
 
 setuptools.setup(
-        name=about['__title__'],
-        version=about['__version__'],
-        author=about['__author__'],
-        author_email=about['__author_email__'],
-        description=about['__description__'],
-        long_description=long_description + uses_description + dev_description,
-        long_description_content_type="text/markdown",
-        url=about['__github__'],
-        license=about['__license__'],
-        # packages=setuptools.find_packages(),
-        packages=packages,
-        classifiers=(
-            "Programming Language :: Python :: 3",
-            "Programming Language :: Python :: 3.6",
-            "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
-            "Operating System :: OS Independent",
-            'Topic :: Internet :: WWW/HTTP :: Indexing/Search',
-            'Topic :: Software Development :: Libraries :: Python Modules',
-            'Topic :: System :: Archiving :: Packaging',
-            "Topic :: Text Processing",
-            "Development Status :: 2 - Pre-Alpha",
-            "Intended Audience :: Developers",
-            "Intended Audience :: System Administrators",
-            "Intended Audience :: End Users/Desktop",
-            "Intended Audience :: Information Technology",
-            "Natural Language :: English",
 
-        ),
-        keywords=(
-            "excel to json", 
-            "xlsx to json", "xls to json", 
-            "xlsx", "xls", "json",
-        ),
-        install_requires=(
-            "xlrd",
-            "openpyxl",
-            "requests",
-        )
+    name=about['__title__'],
+    version=about['__version__'],
+    author=about['__author__'],
+    author_email=about['__author_email__'],
+    description=about['__description__'],
+    long_description=long_description + uses_description + dev_description,
+    long_description_content_type="text/markdown",
+    url=about['__github__'],
+    license=about['__license__'],
+    # packages=setuptools.find_packages(),
+    packages=packages,
+    classifiers=(
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
+        "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+        "Operating System :: OS Independent",
+        'Topic :: Internet :: WWW/HTTP :: Indexing/Search',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'Topic :: System :: Archiving :: Packaging',
+        "Topic :: Text Processing",
+        "Development Status :: 2 - Pre-Alpha",
+        "Intended Audience :: Developers",
+        "Intended Audience :: System Administrators",
+        "Intended Audience :: End Users/Desktop",
+        "Intended Audience :: Information Technology",
+        "Natural Language :: English",
+
+    ),
+    keywords=(
+        "excel to json",
+        "xlsx to json", "xls to json",
+        "xlsx", "xls", "json",
+    ),
+    install_requires=(
+        "xlrd",
+        "openpyxl",
+        "requests",
+    ),
+    entry_points={
+        "console_scripts": [
+            "excel2json-3=excel2json:cli",
+        ],
+    },
+
             
 )

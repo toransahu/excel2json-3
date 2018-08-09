@@ -18,19 +18,20 @@ __license__ = 'Distributed under terms of the MIT license.'
 
 # url = 'https://www.iso20022.org/sites/default/files/ISO10383_MIC/ISO10383_MIC.xls'
 
-"""
-Command line utility
-"""
 
-if sys.argv[-2] == "--file":
-    if os.path.isfile(sys.argv[-1]):
-        convert_from_file(sys.argv[-1])
+def cli():
+    """
+    Command line utility
+    """
+    if sys.argv[-2] == "--file":
+        if os.path.isfile(sys.argv[-1]):
+            convert_from_file(sys.argv[-1])
+        else:
+            print("Not an Excel file")
+    elif sys.argv[-2] == "--url":
+        if sys.argv[-1].startswith('http://') or sys.argv[-1].startswith('https://'):
+            convert_from_url(sys.argv[-1])
+        else:
+            print("Not a valid link")
     else:
-        print("Not an Excel file")
-elif sys.argv[-2] == "--url":
-    if sys.argv[-1].startswith('http://') or sys.argv[-1].startswith('https://'):
-        convert_from_url(sys.argv[-1])
-    else:
-        print("Not a valid link")
-else:
-    print("Invalid option")
+        print("Invalid option")
