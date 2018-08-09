@@ -157,15 +157,17 @@ def jsonify(worksheet, loc):
         return 1
 
 
-def convert_from_url(url, location=None, in_memory=False):
+def convert_from_url(url, location=None):
     r"""
-    GET file from URL & In-Memory convert to JSON.
+    GET file from URL & convert to JSON.
 
     :param url: URL of a MS Excel file [2003 (.xls) or 2007(.xlsx)].
     :param location: (optional) String, Relative or absolute dir path location to save the JSON files. Else JSON files will be saved at current working directory.
-    :param in_memory: (optional) Boolean, True or False to convert MS Excel file in-memory and produce JSON. Else MS Excel file will be saved at current working directory.
     :return: Exit status.
     """
+    # TODO:
+    # :param in_memory: (optional) Boolean, True or False to convert MS Excel file in-memory and produce JSON.
+    # Else MS Excel file will be saved at current working directory.
     try:
         filename = get_excel_file_name(url)
         resp = download_file(url)
@@ -209,25 +211,3 @@ def convert_from_file(filepath, location=None):
     except Exception as e:
         print(e)
 
-
-def run_in_cli():
-    """
-    Get file & convert to JSON.
-    """
-    if sys.argv[-2] == "--file":
-        if os.path.isfile(sys.argv[-1]):
-            convert_from_file(sys.argv[-1])
-        else:
-            print("Not an Excel file")
-    elif sys.argv[-2] == "--url":
-        if sys.argv[-1].startswith('http://') or sys.argv[-1].startswith('https://'):
-            convert_from_url(sys.argv[-1])
-        else:
-            print("Not a valid link")
-    else:
-        print("Invalid option")
-
-
-# url = 'https://www.iso20022.org/sites/default/files/ISO10383_MIC/ISO10383_MIC.xls'
-
-run_in_cli()
