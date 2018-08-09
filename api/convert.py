@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 # vim:fenc=utf-8
 # created_on: Sat Feb 30 13:49:20 2018
-
 """
 convert_excel_to_json.py
 
@@ -12,15 +11,18 @@ Provide a link to or a file of type .xlsx/.xls & convert a MS Excel sheet to a J
 __author__ = 'Toran Sahu  <toran.sahu@yahoo.com>'
 __license__ = 'Distributed under terms of the AGPL license.'
 
-
+import re
 import os
 import sys
 import json
 import argparse
 import requests
+import logging
 from xlrd import open_workbook  # python module 'xlrd supports .xls & .xlsx both
 from xlrd.biffh import XLRDError
 
+# logger = logging(__name__)
+here = os.path.curdir
 
 def download_file(url):
     """
@@ -65,6 +67,22 @@ def save_file(loc, filename, response):
                 f"Something wrong happened while saving the file {filename}. Error: {ex}."
             )
             return 1
+
+
+def get_excel_file_name(url):
+    filename = re.split(r"/", url)[-1]
+    return filename
+
+
+def get_excel_sheets(abspath):
+    """
+    Get details of sheets found in the workbook.
+    """
+    try:
+        workbook = open_workbook(abspath)
+        return workbook.sheet_names()
+    except Exception as e:
+        print(e)
 
 
 def read_excel_sheet(abspath, sheet_name):
@@ -139,33 +157,6 @@ def jsonify(worksheet, loc):
         return 1
 
 
-def main():
-    url = 'https://www.iso20022.org/sites/default/files/ISO10383_MIC/ISO10383_MIC.xls'
-    loc = '../data/'
-    filename = 'ISO10383_MIC.xls'
-    # filename = 'ISO10383_MIC.xlsx'
-    abspath = os.path.join(loc, filename)
-    sheet_name = 'MICs List by CC'
-
-    print(f'Downloading the excel file "{filename}".')
-    res = download_file(url)
-    result = save_file(loc, filename, res)
-    if result == 0:
-        print(f'"{filename}" saved at path "{loc}".')
-    else:
-        return 1
-    print(f'Reading "{filename}".')
-    worksheet = read_excel_sheet(abspath, sheet_name)
-    print(f'Extracting sheet "{sheet_name}".')
-    result = jsonify(worksheet, loc)
-    if result == 0:
-        print(
-            f'Imported data from sheet "{sheet_name}" into "{sheet_name}.json" at "{loc}".'
-        )
-    else:
-        sys.exit(1)
-
-
 def convert_from_url(url, location=None, in_memory=False):
     r"""
     GET file from URL & In-Memory convert to JSON.
@@ -175,7 +166,24 @@ def convert_from_url(url, location=None, in_memory=False):
     :param in_memory: (optional) Boolean, True or False to convert MS Excel file in-memory and produce JSON. Else MS Excel file will be saved at current working directory.
     :return: Exit status.
     """
-    pass
+    try:
+        filename = get_excel_file_name(url)
+        resp = download_file(url)
+        if location:
+            if not os.path.exists(location):
+                print(f"{location} directory does not exists.")
+                sys.exit(0)
+            res = save_file(location, filename, resp)
+        else:
+            location = os.path.curdir
+            res = save_file(location, filename, resp)
+        if res == 0:
+            abspath = os.path.join(location, filename)
+            for sheet in get_excel_sheets(abspath):
+                worksheet = read_excel_sheet(abspath, sheet)
+                jsonify(worksheet, location)
+    except Exception as e:
+        print(e)
 
 
 def convert_from_file(filepath, location=None):
@@ -183,16 +191,43 @@ def convert_from_file(filepath, location=None):
     Get file & convert to JSON.
 
     :param filepath: Relative or absolute path of a MS Excel file [2003 (.xls) or 2007(.xlsx)].
-    :param location: (optional) String, Relative or absolute dir path location to save the JSON files. Else JSON files will be saved at current working directory.
+    :param location: (optional) String, Relative or absolute dir path location to save the JSON files. Else JSON files will be saved at save dir where Excel file is.
     """
-    pass
+    try:
+        if not os.path.exists(filepath):
+            print(f"File does not exists at {filepath}")
+            sys.exit(0)
+        if location is None:
+            location = os.path.dirname(filepath)
+            location = os.path.abspath(location)
+
+        sheet_names = get_excel_sheets(filepath)
+
+        for sheet in sheet_names:
+            worksheet = read_excel_sheet(filepath, sheet)
+            jsonify(worksheet, location)
+    except Exception as e:
+        print(e)
 
 
 def run_in_cli():
     """
     Get file & convert to JSON.
     """
-    pass
+    if sys.argv[-2] == "--file":
+        if os.path.isfile(sys.argv[-1]):
+            convert_from_file(sys.argv[-1])
+        else:
+            print("Not an Excel file")
+    elif sys.argv[-2] == "--url":
+        if sys.argv[-1].startswith('http://') or sys.argv[-1].startswith('https://'):
+            convert_from_url(sys.argv[-1])
+        else:
+            print("Not a valid link")
+    else:
+        print("Invalid option")
 
 
-# main()
+# url = 'https://www.iso20022.org/sites/default/files/ISO10383_MIC/ISO10383_MIC.xls'
+
+run_in_cli()
