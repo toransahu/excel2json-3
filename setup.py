@@ -36,7 +36,7 @@ elif sys.argv[-1] == 'publish':
 ##
 # sub-packages to include 
 ##
-packages = ['excel2json']
+packages = ['excel2json', 'api']
 
 
 ##
