@@ -2,6 +2,10 @@
 [![Build Status](https://travis-ci.org/toransahu/excel2json-3.svg?branch=master)](https://travis-ci.org/toransahu/excel2json-3)
 [![PyPI version](https://badge.fury.io/py/excel2json-3.svg)](https://badge.fury.io/py/excel2json-3)
 ![Python Version](https://img.shields.io/badge/python-3%2C%203.6-yellow.svg)
+![Issues](https://img.shields.io/github/issues/toransahu/excel2json-3.svg)
+![Forks](https://img.shields.io/github/forks/toransahu/excel2json-3.svg)
+![Stars](https://img.shields.io/github/stars/toransahu/excel2json-3.svg)
+![License](https://img.shields.io/github/license/toransahu/excel2json-3.svg)
 [![Say Thanks](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/toransahu)
 
 A minimal API that converts MS Excel (.xls & .xlsx) files, or from a given URL into JSON files.
@@ -18,12 +22,12 @@ A minimal API that converts MS Excel (.xls & .xlsx) files, or from a given URL i
 
     - GET file from URL & convert to JSON.
     ```bash
-    python -m excel2json-3 --urls https://example.com/example.xls
+    excel2json-3 --urls https://example.com/example.xls
     ```
     
     - GET file from disk & convert to JSON.
     ```bash
-    python -m excel2json-3 --file /home/ubuntu/Documents/example.xlsx
+    excel2json-3 --file /home/ubuntu/Documents/example.xlsx
     ```
 
 
