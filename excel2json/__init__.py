@@ -13,7 +13,7 @@ from api.convert import convert_from_file, convert_from_url, jsonify
 
 
 __author__ = 'Toran Sahu  <toran.sahu@yahoo.com>'
-__license__ = 'Distributed under terms of the MIT license.'
+__license__ = 'Distributed under terms of the AGPL license.'
 
 
 # url = 'https://www.iso20022.org/sites/default/files/ISO10383_MIC/ISO10383_MIC.xls'

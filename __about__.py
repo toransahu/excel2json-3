@@ -8,7 +8,7 @@ __about__.py
 """
 
 
-__title__ =  'excel2json-3'
+__title__ = 'excel2json-3'
 __description__ = 'Convert Excel Sheet into JSON file.'
 __github__ = 'https://github.com/toransahu/excel2json-3'
 __pypi__ = 'https://pypi.org/project/excel2json-3/'
