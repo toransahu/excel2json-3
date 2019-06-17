@@ -38,3 +38,5 @@ You can contribute in following ways:
 - Add more "APIs" 
 - Give suggestions to make it better
 - Fix issues & submit a pull request
+
+## [TODOs](/docs/TODO.md)
